@@ -79,7 +79,7 @@ citrus.readFCSSet = function(dataDirectory,fileList,fileSampleSize=1000,transfor
       fileReagentNames[[conditions[i]]][[fileName]]=as.vector(pData(parameters(fcsFile))$desc)
       fcsData = cbind(fcsData,fileEventNumber=1:nrow(fcsData),fileId=fileCounter);
       fileCounter=fileCounter+1;
-      
+      browser() # for debugging
       if ((!is.null(fileSampleSize))&&(fileSampleSize<nrow(fcsData))){
         cat(paste("\tSampling",fileSampleSize,"events.\n"))
         fcsData = fcsData[sort(sample(1:nrow(fcsData),fileSampleSize)),] 
